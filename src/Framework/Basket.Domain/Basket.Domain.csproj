@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\Basket.ApplicationCore\Basket.ApplicationCore.csproj" />
   </ItemGroup>
 
 </Project>
