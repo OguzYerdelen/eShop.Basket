@@ -11,7 +11,7 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-NGR96Q4;Database=eShopDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-F8NN27D;Database=eShopDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
             base.OnConfiguring(optionsBuilder);
         }
 
