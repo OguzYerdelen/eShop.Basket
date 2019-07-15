@@ -65,7 +65,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                     {
                         if (CheckUserIsInDb(entity.UserId))
                         {
-
                             var existedProduct = context.Baskets.SingleOrDefault(x =>
                                 x.UserId == entity.UserId && x.ProductId == entity.ProductId);
                             if (entity.CountOfProduct == 0)
@@ -73,7 +72,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                                 context.Baskets.Remove(existedProduct);
                                 context.SaveChanges();
                             }
-                         
                             else
                             {
                                 existedProduct.CountOfProduct -= entity.CountOfProduct;
@@ -104,7 +102,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                 }
             }
         }
-
         private bool CheckUserIsInDb(int id)
         {
             using (var context = new EShopContext())
