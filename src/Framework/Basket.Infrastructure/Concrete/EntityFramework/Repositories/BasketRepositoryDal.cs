@@ -25,7 +25,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                             {
                                 context.Baskets.Add(entity);
                                 context.SaveChanges();
-
                             }
                             else
                             {
@@ -41,14 +40,12 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                                 existedUser.CountOfProduct += entity.CountOfProduct;
                                 context.Baskets.Update(existedUser);
                                 context.SaveChanges();
-
                             }
                             else
                             {
                                 throw new Exception("Expected product number more than current product number");
                             }
                         }
-
                         transaction.Commit();
                     }
                     catch (Exception e)
@@ -58,8 +55,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                     }
                 }
             }
-
-
         }
 
         public void RemoveProductFromBasket(Domain.Concrete.Basket entity)
@@ -94,9 +89,7 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                                 product.UnitsInStock += entity.CountOfProduct;
                                 context.Products.Update(product);
                                 context.SaveChanges();
-
                             }
-
                         }
                         else
                         {
@@ -112,8 +105,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                     }
                 }
             }
-
-
         }
 
         private bool CheckUserIsInDb(int id)
@@ -122,8 +113,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
             {
                 var userExist = context.Baskets.Any(x => x.UserId == id);
                 return userExist == true ? true : false;
-
-
             }
         }
         private bool CheckStock(int productId, int expectedUnits)
@@ -131,8 +120,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
             using (var context = new EShopContext())
             {
                 var product = context.Products.SingleOrDefault(x => x.Id == productId);
-
-
                 decimal diffrenceOfCount = product.UnitsInStock - expectedUnits;
 
                 if (diffrenceOfCount > 0)
@@ -143,7 +130,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                     return true;
                 }
                 return false;
-
             }
         }
     }
