@@ -10,7 +10,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
 {
     public class BasketRepositoryDal : EntityRepositoryBase<Domain.Concrete.Basket, int, EShopContext>, IBasketRepositoryDal
     {
-
         public void AddProductToBasket(Domain.Concrete.Basket entity)
         {
             using (var context = new EShopContext())
@@ -56,7 +55,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                 }
             }
         }
-
         public void RemoveProductFromBasket(Domain.Concrete.Basket entity)
         {
             using (var context = new EShopContext())
