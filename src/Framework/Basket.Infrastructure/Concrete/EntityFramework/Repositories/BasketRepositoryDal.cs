@@ -62,7 +62,6 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
 
         }
 
-
         public void RemoveProductFromBasket(Domain.Concrete.Basket entity)
         {
             using (var context = new EShopContext())
@@ -87,10 +86,10 @@ namespace Basket.Infrastructure.Concrete.EntityFramework.Repositories
                                 existedProduct.CountOfProduct -= entity.CountOfProduct;
                                 if (existedProduct.CountOfProduct<0)
                                 {
-                                    throw new Exception("existed product number cant be less than 0");
+                                    throw new Exception("Existed product number cant be less than 0");
                                 }
                                 context.Baskets.Update(existedProduct);
-                                context.SaveChangesAsync();
+                                context.SaveChanges();
                                 var product = context.Products.SingleOrDefault(x => x.Id == entity.ProductId);
                                 product.UnitsInStock += entity.CountOfProduct;
                                 context.Products.Update(product);
