@@ -60,7 +60,20 @@ namespace eShop.Infrastructure.Test
             Assert.Equal(1, t.Count());
         }
 
+        [Fact]
+        public void addtt()
+        {
+            var t = new BasketRepositoryDal();
+            var user = new Basket.Domain.Concrete.Basket()
+            {
+                CountOfProduct = 250,
+                ProductId = 1,
+                UserId = 2
 
+            };
+            t.AddToBasket(user);
+            Assert.Equal(2, t.Count());
+        }
     
 
 

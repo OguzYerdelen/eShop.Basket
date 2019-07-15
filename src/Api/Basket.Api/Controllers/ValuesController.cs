@@ -13,10 +13,12 @@ namespace Basket.Api.Controllers
     public class ValuesController : ControllerBase
     {
         public readonly IUserRepositoryDal _userRepositoryDal;
+        public readonly IBasketRepositoryDal _basketRepository;
 
-        public ValuesController(IUserRepositoryDal userRepositoryDal)
+        public ValuesController(IUserRepositoryDal userRepositoryDal, IBasketRepositoryDal basketRepositoryDal)
         {
             _userRepositoryDal = userRepositoryDal;
+            _basketRepository = basketRepositoryDal;
         }
         // GET api/values
         [HttpGet]
@@ -36,10 +38,10 @@ namespace Basket.Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult<User> Post([FromBody] User user)
+        public ActionResult<Domain.Concrete.Basket> Post([FromBody] Domain.Concrete.Basket basket)
         {
-             _userRepositoryDal.Add(user);
-             return Ok(user);
+             _basketRepository.AddProductToBasket(basket);
+             return Ok(basket);
 
 
         }
@@ -57,10 +59,11 @@ namespace Basket.Api.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPut]
+        public ActionResult<Domain.Concrete.Basket> Get([FromBody] Domain.Concrete.Basket basket)
         {
-            _userRepositoryDal.DeleteById(id);
+           _basketRepository.RemoveProductFromBasket(basket);
+           return Ok(basket);
         }
     }
 }

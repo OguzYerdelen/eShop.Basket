@@ -6,7 +6,8 @@ namespace Basket.Infrastructure.Abstract
     public interface IBasketRepositoryDal: IGenericRepository<Domain.Concrete.Basket, int>
     {
 
-        void AddToBasket(Domain.Concrete.Basket entity);
+        void AddProductToBasket(Domain.Concrete.Basket entity);
+        void RemoveProductFromBasket(Domain.Concrete.Basket entity);
 
     }
 }
