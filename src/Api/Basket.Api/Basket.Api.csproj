@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Basket.ApplicationCore\Basket.ApplicationCore.csproj" />
+    <ProjectReference Include="..\..\Framework\Basket.Domain\Basket.Domain.csproj" />
+    <ProjectReference Include="..\..\Framework\Basket.Infrastructure\Basket.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

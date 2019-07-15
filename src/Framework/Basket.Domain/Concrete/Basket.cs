@@ -17,6 +17,7 @@ namespace Basket.Domain.Concrete
 
         public int UserId { get; set; }
         public int ProductId { get; set; }
+        public int CountOfProduct { get; set; }
 
     
     }
